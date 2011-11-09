@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWatch", "SampleWatch.csproj", "{95F3182E-900C-46D3-A14B-9F6EF06DDC3E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{95F3182E-900C-46D3-A14B-9F6EF06DDC3E}.Debug.ActiveCfg = Debug|.NET
+		{95F3182E-900C-46D3-A14B-9F6EF06DDC3E}.Debug.Build.0 = Debug|.NET
+		{95F3182E-900C-46D3-A14B-9F6EF06DDC3E}.Release.ActiveCfg = Release|.NET
+		{95F3182E-900C-46D3-A14B-9F6EF06DDC3E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

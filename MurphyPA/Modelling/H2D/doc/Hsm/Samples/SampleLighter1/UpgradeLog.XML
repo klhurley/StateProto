@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SampleLighter1">
+</Property><Property Name="Solution File" Value="C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\SampleLighter1.sln">
+</Property><Property Name="Date" Value="Monday, November 07, 2011">
+</Property><Property Name="Time" Value="9:33 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SampleLighter1.sln" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\SampleLighter1.sln">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="SampleLighter1.csproj" Description="Project file successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\SampleLighter1.csproj">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="ConsoleStateEventHandler.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\ConsoleStateEventHandler.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="Form1.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\Form1.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="hsm\Air.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\hsm\Air.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="hsm\Flint.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\hsm\Flint.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="hsm\FuelMixture.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\hsm\FuelMixture.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="hsm\LighterFrame.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\hsm\LighterFrame.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="hsm\Valve.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\hsm\Valve.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="IHsmExecutionModel.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\IHsmExecutionModel.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="MultipleHsmsPerThread.cs" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\MultipleHsmsPerThread.cs">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="App.ico" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="Form1.resx" Description="File successfully backed up as C:\Development\StateProto\MurphyPA\Modelling\H2D\doc\Hsm\Samples\SampleLighter1\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="SampleLighter1.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SampleLighter1" Source="SampleLighter1.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SampleLighter1.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SampleLighter1.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SampleLighter1" Source="SampleLighter1.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

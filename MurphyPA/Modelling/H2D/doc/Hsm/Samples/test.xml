@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Glyphs>
+  <StateGlyph Name="Zombie::Init" Id="2253a24d-0eee-4a1f-baba-3c47b40b3a29" DoNotInstrument="False">
+    <Note />
+    <IsStartState>True</IsStartState>
+    <EntryAction>Zombie::ExitDoor</EntryAction>
+    <ExitAction />
+    <StateCommands />
+    <StateGlyph Name="FindPlayer" Id="8500a42e-b013-4f42-8136-cbd6762558fd" DoNotInstrument="False">
+      <Note />
+      <ParentId>2253a24d-0eee-4a1f-baba-3c47b40b3a29</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+      <StateGlyph Name="" Id="86a4daf1-37c8-46ef-89ea-1c02cf11089d" DoNotInstrument="False">
+        <Note />
+        <ParentId>8500a42e-b013-4f42-8136-cbd6762558fd</ParentId>
+        <IsStartState>False</IsStartState>
+        <EntryAction />
+        <ExitAction />
+        <StateCommands />
+      </StateGlyph>
+    </StateGlyph>
+    <StateGlyph Name="Zombie::DoorOpened" Id="3bc2f54c-3a2e-46cd-a20b-ba90857e941d" DoNotInstrument="False">
+      <Note />
+      <ParentId>2253a24d-0eee-4a1f-baba-3c47b40b3a29</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction>Zombie::DoorDidOpen</EntryAction>
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+  </StateGlyph>
+  <PortLinkGlyph Name="" Id="71ee512e-77f8-4a06-ba15-84393de303cf" DoNotInstrument="False">
+    <Note />
+    <FromPortName>DoorOpened</FromPortName>
+    <SendIndex />
+    <ToPortName>Zombie::DoorOpened</ToPortName>
+  </PortLinkGlyph>
+</Glyphs>

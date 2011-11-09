@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Glyphs>
+  <StateGlyph Name="Setting" Id="661ae368-ff6d-4d43-b73c-3b9e69a8cd1c" DoNotInstrument="False">
+    <Note />
+    <IsStartState>True</IsStartState>
+    <EntryAction />
+    <ExitAction />
+    <StateCommands />
+    <StateGlyph Name="Hour" Id="23641e35-16a2-491a-b7d7-9102eaa0e9c8" DoNotInstrument="False">
+      <Note />
+      <ParentId>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</ParentId>
+      <IsStartState>True</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+    <StateGlyph Name="Month" Id="cc931969-263f-421b-a7fb-634ad3f05aa8" DoNotInstrument="False">
+      <Note />
+      <ParentId>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+    <StateGlyph Name="Minute" Id="865289f9-340a-4813-b441-e7881acfff9e" DoNotInstrument="False">
+      <Note />
+      <ParentId>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+    <StateGlyph Name="Day" Id="964135d1-e12e-416b-a2d6-5593fb94de78" DoNotInstrument="False">
+      <Note />
+      <ParentId>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+  </StateGlyph>
+  <StateGlyph Name="TimeKeeping" Id="e7201a47-59f0-4498-97e8-e94679c0bf53" DoNotInstrument="False">
+    <Note />
+    <IsStartState>False</IsStartState>
+    <EntryAction />
+    <ExitAction />
+    <StateCommands />
+    <StateGlyph Name="Time" Id="a21d1653-c828-46a4-9575-19b6534a4890" DoNotInstrument="False">
+      <Note />
+      <ParentId>e7201a47-59f0-4498-97e8-e94679c0bf53</ParentId>
+      <IsStartState>True</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+    <StateGlyph Name="Date" Id="6e5bdc01-fb0f-473f-8cd3-339dd2b0310a" DoNotInstrument="False">
+      <Note />
+      <ParentId>e7201a47-59f0-4498-97e8-e94679c0bf53</ParentId>
+      <IsStartState>False</IsStartState>
+      <EntryAction />
+      <ExitAction />
+      <StateCommands />
+    </StateGlyph>
+  </StateGlyph>
+  <TransitionGlyph Name="" Id="697d5922-d68e-4052-bd0e-6ee46375e444" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>964135d1-e12e-416b-a2d6-5593fb94de78</Id>
+      <Name>Day</Name>
+    </State>
+    <State>
+      <Id>964135d1-e12e-416b-a2d6-5593fb94de78</Id>
+      <Name>Day</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="3c3e43c5-a426-441c-9a89-7b1c189fb2a5" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>6e5bdc01-fb0f-473f-8cd3-339dd2b0310a</Id>
+      <Name>Date</Name>
+    </State>
+    <State>
+      <Id>a21d1653-c828-46a4-9575-19b6534a4890</Id>
+      <Name>Time</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="2e9b2081-a775-4954-b08f-d9f50d063a62" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>a21d1653-c828-46a4-9575-19b6534a4890</Id>
+      <Name>Time</Name>
+    </State>
+    <State>
+      <Id>6e5bdc01-fb0f-473f-8cd3-339dd2b0310a</Id>
+      <Name>Date</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="60a6308d-9117-4145-a4fe-09d995b5bfb6" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action>IncrHour()</Action>
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>23641e35-16a2-491a-b7d7-9102eaa0e9c8</Id>
+      <Name>Hour</Name>
+    </State>
+    <State>
+      <Id>23641e35-16a2-491a-b7d7-9102eaa0e9c8</Id>
+      <Name>Hour</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="c1390a86-52f4-41d0-88fe-91f247a48681" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>865289f9-340a-4813-b441-e7881acfff9e</Id>
+      <Name>Minute</Name>
+    </State>
+    <State>
+      <Id>865289f9-340a-4813-b441-e7881acfff9e</Id>
+      <Name>Minute</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="66c2fd52-3160-4380-abb0-4da2da8d1caf" DoNotInstrument="False">
+    <Note />
+    <EventSignal>ModeEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>cc931969-263f-421b-a7fb-634ad3f05aa8</Id>
+      <Name>Month</Name>
+    </State>
+    <State>
+      <Id>cc931969-263f-421b-a7fb-634ad3f05aa8</Id>
+      <Name>Month</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="728c91e1-c406-451a-bb89-b5994c994341" DoNotInstrument="False">
+    <Note />
+    <EventSignal>SetEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>e7201a47-59f0-4498-97e8-e94679c0bf53</Id>
+      <Name>TimeKeeping</Name>
+    </State>
+    <State>
+      <Id>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</Id>
+      <Name>Setting</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="90dc0603-2db5-4252-bc06-4d50edba4033" DoNotInstrument="False">
+    <Note />
+    <EventSignal>SetEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>DeepHistory</TransitionType>
+    <State>
+      <Id>661ae368-ff6d-4d43-b73c-3b9e69a8cd1c</Id>
+      <Name>Setting</Name>
+    </State>
+    <State>
+      <Id>e7201a47-59f0-4498-97e8-e94679c0bf53</Id>
+      <Name>TimeKeeping</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="52c301b9-1071-4e74-b4ad-813580affaaa" DoNotInstrument="False">
+    <Note />
+    <EventSignal>SetEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>865289f9-340a-4813-b441-e7881acfff9e</Id>
+      <Name>Minute</Name>
+    </State>
+    <State>
+      <Id>964135d1-e12e-416b-a2d6-5593fb94de78</Id>
+      <Name>Day</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="cb768ff0-d10b-492c-9e42-c005bb891543" DoNotInstrument="False">
+    <Note />
+    <EventSignal>SetEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>964135d1-e12e-416b-a2d6-5593fb94de78</Id>
+      <Name>Day</Name>
+    </State>
+    <State>
+      <Id>cc931969-263f-421b-a7fb-634ad3f05aa8</Id>
+      <Name>Month</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="7b664bc4-0177-42a8-9be8-a82bdbb7cd15" DoNotInstrument="False">
+    <Note />
+    <EventSignal>SetEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>23641e35-16a2-491a-b7d7-9102eaa0e9c8</Id>
+      <Name>Hour</Name>
+    </State>
+    <State>
+      <Id>865289f9-340a-4813-b441-e7881acfff9e</Id>
+      <Name>Minute</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="bb20223b-38b6-4262-8a89-8c0617351248" DoNotInstrument="False">
+    <Note />
+    <EventSignal>TickEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>a21d1653-c828-46a4-9575-19b6534a4890</Id>
+      <Name>Time</Name>
+    </State>
+    <State>
+      <Id>a21d1653-c828-46a4-9575-19b6534a4890</Id>
+      <Name>Time</Name>
+    </State>
+  </TransitionGlyph>
+  <TransitionGlyph Name="" Id="284dc7eb-5d0f-4d57-a954-25aad2f0c005" DoNotInstrument="False">
+    <Note />
+    <EventSignal>TickEvt</EventSignal>
+    <EventSource />
+    <GuardCondition />
+    <Action />
+    <EvaluationOrderPriority>0</EvaluationOrderPriority>
+    <EventType />
+    <IsInnerTransition>False</IsInnerTransition>
+    <TimeOutExpression />
+    <TransitionType>Normal</TransitionType>
+    <State>
+      <Id>6e5bdc01-fb0f-473f-8cd3-339dd2b0310a</Id>
+      <Name>Date</Name>
+    </State>
+    <State>
+      <Id>6e5bdc01-fb0f-473f-8cd3-339dd2b0310a</Id>
+      <Name>Date</Name>
+    </State>
+  </TransitionGlyph>
+</Glyphs>

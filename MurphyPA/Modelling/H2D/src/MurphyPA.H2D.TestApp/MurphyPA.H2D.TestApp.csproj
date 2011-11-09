@@ -1,0 +1,307 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7863CCB-E822-4D73-B108-E1618087399A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MurphyPA.H2D.StateProto</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MurphyPA.H2D.TestApp</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>MurphyPA.H2D.TestApp.EntryPoint</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\..\..\..\bin\lib\stateproto\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\..\..\..\bin\lib\stateproto\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LoggingUtil">
+      <Name>LoggingUtil</Name>
+      <HintPath>..\..\..\..\..\..\bin\lib\common\LoggingUtil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MurphyPA.H2D.Implementation">
+      <Name>MurphyPA.H2D.Implementation</Name>
+      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Implementation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MurphyPA.H2D.Interfaces">
+      <Name>MurphyPA.H2D.Interfaces</Name>
+      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="qf4net">
+      <Name>qf4net</Name>
+      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\qf4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StepByStep.Modelling.QF4NetExtensions">
+      <Name>StepByStep.Modelling.QF4NetExtensions</Name>
+      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\StepByStep.Modelling.QF4NetExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionAnalyser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeCompiler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToCodeBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToCodeGlyphSorter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToCodeWithSaveDialogCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConvertToXmlWithSaveDialogCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagramCommandBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagramModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DrawingSurface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EntryPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExecuteHsmCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExecutionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExecutionControllerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GlyphPropertyWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GuiCommandBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HsmUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IUIInteractionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IUIInterationContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadFileCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadFileWithDialogCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadGlyphDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LogHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OkCancelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessComponentFrame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessComponentFrameExecutionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QHsmExecutionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QHsmExecutionControllerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveAsImageCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SaveFileWithDialogCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SaveGlyphDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SignalActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SimpleStringEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StateDiagramView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StateMachineHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StringEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestStateGlyphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIGlyphCreater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIGlyphGroupSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIGlyphInteractionHandlerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIGlyphKeyboardInputInteractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIGlyphMoveAndReparent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UISelectorBand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="App.ico" />
+    <EmbeddedResource Include="DrawingSurface.resx">
+      <DependentUpon>DrawingSurface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecutionControllerView.resx">
+      <DependentUpon>ExecutionControllerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GlyphPropertyWindow.resx">
+      <DependentUpon>GlyphPropertyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OkCancelForm.resx">
+      <DependentUpon>OkCancelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessComponentFrameExecutionView.resx">
+      <DependentUpon>ProcessComponentFrameExecutionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QHsmExecutionControllerView.resx">
+      <DependentUpon>QHsmExecutionControllerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateDiagramView.resx">
+      <DependentUpon>StateDiagramView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringEntry.resx">
+      <DependentUpon>StringEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestAppForm.resx">
+      <DependentUpon>TestAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestStateGlyphControl.resx">
+      <DependentUpon>TestStateGlyphControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
