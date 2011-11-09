@@ -1,156 +1,9 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>HierarchicalStateMachine</name>
+        <name>qf4net</name>
     </assembly>
     <members>
-        <member name="T:qf4net.EventQueueFactory">
-            <summary>
-            Helper class that encapsulates the creation of <see cref="T:qf4net.IQEventQueue"/> instances. The use of a helper
-            class (rather than directly newing up a new QEventQueue) allows us to introduce different implentation strategies
-            event queues without affecting the client code.
-            </summary>
-        </member>
-        <member name="M:qf4net.EventQueueFactory.GetEventQueue">
-            <summary>
-            Hands out a <see cref="T:qf4net.IQEventQueue"/> instance.
-            </summary>
-        </member>
-        <member name="T:qf4net.IQActive">
-            <summary>
-            Interface that Active Objects implement.
-            </summary>
-        </member>
-        <member name="M:qf4net.IQActive.Start(System.Int32)">
-            <summary>
-            Start the <see cref="T:qf4net.IQActive"/> object's thread of execution. The caller needs to assign a unique
-            priority to every <see cref="T:qf4net.IQActive"/> object in the system. 
-            </summary>
-            <param name="priority">The priority associated with this <see cref="T:qf4net.IQActive"/> object.</param>
-        </member>
-        <member name="M:qf4net.IQActive.PostFIFO(qf4net.IQEvent)">
-            <summary>
-            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
-            using the FIFO (First In First Out) policy. 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.IQActive.PostLIFO(qf4net.IQEvent)">
-            <summary>
-            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
-            using the LIFO (Last In First Out) policy. 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.IQActive.IsInState(qf4net.QState)">
-            <summary>
-            Determines whether the state machine is in the state specified by <see paramref="inquiredState"/>.
-            </summary>
-            <param name="inquiredState">The state to check for.</param>
-            <returns>
-            <see langword="true"/> if the state machine is in the specified state; 
-            <see langword="false"/> otherwise.
-            </returns>
-            <remarks>
-            If the currently active state of a hierarchical state machine is s then it is in the 
-            state s AND all its parent states.
-            </remarks>
-        </member>
-        <member name="P:qf4net.IQActive.Priority">
-            <summary>
-            The priority associated with this <see cref="T:qf4net.IQActive"/> object. Once the <see cref="T:qf4net.IQActive"/> object
-            is started the priority is non-negative. For an <see cref="T:qf4net.IQActive"/> object that has not yet been started
-            the value -1 is returned as the priority.
-            </summary>
-        </member>
-        <member name="P:qf4net.IQActive.CurrentStateName">
-            <summary>
-            Returns the name of the (deepest) state that the state machine is currently in.
-            </summary>
-        </member>
-        <member name="T:qf4net.IQEvent">
-            <summary>
-            Interface that a class that can be used for QEvent instances needs to implement.
-            </summary>
-        </member>
-        <member name="M:qf4net.IQEvent.ToString">
-            <summary>
-            The <see cref="T:qf4net.IQEvent"/> instance in string form. It should be implemented to allow for simpler 
-            debugging and logging. 
-            </summary>
-            <returns>The string representation of the <see cref="T:qf4net.IQEvent"/> instance.</returns>
-        </member>
-        <member name="P:qf4net.IQEvent.QSignal">
-            <summary>
-            The identifier of the <see cref="T:qf4net.IQEvent"/> type.
-            </summary>
-        </member>
-        <member name="T:qf4net.IQEventQueue">
-            <summary>
-            Summary description for IEventQueue.
-            </summary>
-        </member>
-        <member name="M:qf4net.IQEventQueue.EnqueueFIFO(qf4net.IQEvent)">
-            <summary>
-            Inserts the <see paramref="qEvent"/> at the end of the queue (First In First Out). 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.IQEventQueue.EnqueueLIFO(qf4net.IQEvent)">
-            <summary>
-            Inserts the <see paramref="qEvent"/> at the beginning of the queue (First In First Out). 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.IQEventQueue.DeQueue">
-            <summary>
-            Dequeues the first <see cref="T:qf4net.IQEvent"/> in the <see cref="T:qf4net.IQEventQueue"/>. If the <see cref="T:qf4net.IQEventQueue"/>
-            is currently empty then it blocks until the a new <see cref="T:qf4net.IQEvent"/> is put into the <see cref="T:qf4net.IQEventQueue"/>.
-            </summary>
-            <returns>The first <see cref="T:qf4net.IQEvent"/> in the <see cref="T:qf4net.IQEventQueue"/>.</returns>
-        </member>
-        <member name="P:qf4net.IQEventQueue.IsEmpty">
-            <summary>
-            Returns <see langword="true"/> if the <see cref="T:qf4net.IQEventQueue"/> is empty
-            </summary>
-        </member>
-        <member name="P:qf4net.IQEventQueue.Count">
-            <summary>
-            Number of events in the queue
-            </summary>
-        </member>
-        <member name="T:qf4net.IQF">
-            <summary>
-            Interface implemented by the QF
-            </summary>
-        </member>
-        <member name="M:qf4net.IQF.Initialize(System.Int32)">
-            <summary>
-            Initializes the the quantum framework. Must be called exactly once before any of the other methods on
-            <see cref="T:qf4net.IQF"/> can be used.
-            </summary>
-            <param name="maxSignal">The maximal signal that the <see cref="T:qf4net.IQF"/> must be able to handle.</param>
-        </member>
-        <member name="M:qf4net.IQF.Subscribe(qf4net.IQActive,System.Int32)">
-            <summary>
-            Allows an <see cref="T:qf4net.IQActive"/> object to subscribe for a given signal.
-            </summary>
-            <param name="qActive">The subscribing <see cref="T:qf4net.IQActive"/> object.</param>
-            <param name="qSignal">The signal to subscribe for.</param>
-        </member>
-        <member name="M:qf4net.IQF.Unsubscribe(qf4net.IQActive,System.Int32)">
-            <summary>
-            Allows an <see cref="T:qf4net.IQActive"/> object to unsubscribe for a given signal.
-            </summary>
-            <param name="qActive">The unsubscribing <see cref="T:qf4net.IQActive"/> object.</param>
-            <param name="qSignal">The signal to unsubscribe.</param>
-        </member>
-        <member name="M:qf4net.IQF.Publish(qf4net.QEvent)">
-            <summary>
-            Allows an event source to publish an event. 
-            </summary>
-            <param name="qEvent">The <see cref="T:qf4net.QEvent"/> to publish.</param>
-        </member>
         <member name="T:qf4net.QState">
             <summary>
             Delegate that all state handlers must be a type of
@@ -220,9 +73,275 @@
             DispatchException
             </summary>
         </member>
-        <member name="T:qf4net.QActive">
+        <member name="T:qf4net.QEventQueue">
             <summary>
-            The base class for Active Objects.
+            Thread-safe event queue holding <see cref="T:qf4net.QEvent"/> instances.
+            </summary>
+        </member>
+        <member name="T:qf4net.IQEventQueue">
+            <summary>
+            Summary description for IEventQueue.
+            </summary>
+        </member>
+        <member name="M:qf4net.IQEventQueue.EnqueueFIFO(qf4net.IQEvent)">
+            <summary>
+            Inserts the <see paramref="qEvent"/> at the end of the queue (First In First Out). 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.IQEventQueue.EnqueueLIFO(qf4net.IQEvent)">
+            <summary>
+            Inserts the <see paramref="qEvent"/> at the beginning of the queue (First In First Out). 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.IQEventQueue.DeQueue">
+            <summary>
+            Dequeues the first <see cref="T:qf4net.IQEvent"/> in the <see cref="T:qf4net.IQEventQueue"/>. If the <see cref="T:qf4net.IQEventQueue"/>
+            is currently empty then it blocks until the a new <see cref="T:qf4net.IQEvent"/> is put into the <see cref="T:qf4net.IQEventQueue"/>.
+            </summary>
+            <returns>The first <see cref="T:qf4net.IQEvent"/> in the <see cref="T:qf4net.IQEventQueue"/>.</returns>
+        </member>
+        <member name="P:qf4net.IQEventQueue.IsEmpty">
+            <summary>
+            Returns <see langword="true"/> if the <see cref="T:qf4net.IQEventQueue"/> is empty
+            </summary>
+        </member>
+        <member name="P:qf4net.IQEventQueue.Count">
+            <summary>
+            Number of events in the queue
+            </summary>
+        </member>
+        <member name="M:qf4net.QEventQueue.#ctor">
+            <summary>
+            Creates a new empty <see cref="T:qf4net.QEventQueue"/>
+            </summary>
+        </member>
+        <member name="M:qf4net.QEventQueue.EnqueueFIFO(qf4net.IQEvent)">
+            <summary>
+            Inserts the <see paramref="qEvent"/> at the end of the queue (First In First Out). 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.QEventQueue.EnqueueLIFO(qf4net.IQEvent)">
+            <summary>
+            Inserts the <see paramref="qEvent"/> at the beginning of the queue (First In First Out). 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.QEventQueue.DeQueue">
+            <summary>
+            Dequeues the first <see cref="T:qf4net.QEvent"/> in the <see cref="T:qf4net.QEventQueue"/>. If the <see cref="T:qf4net.QEventQueue"/>
+            is currently empty then it blocks until the a new <see cref="T:qf4net.QEvent"/> is put into the <see cref="T:qf4net.QEventQueue"/>.
+            </summary>
+            <returns>The first <see cref="T:qf4net.QEvent"/> in the <see cref="T:qf4net.QEventQueue"/>.</returns>
+        </member>
+        <member name="M:qf4net.QEventQueue.Peek">
+            <summary>
+            Allows the caller to peek at the head of the <see cref="T:qf4net.QEventQueue"/>.
+            </summary>
+            <returns>The <see cref="T:qf4net.IQEvent"/> at the head of the <see cref="T:qf4net.QEventQueue"/> if it exists; 
+            otherwise <see langword="null"/></returns>
+        </member>
+        <member name="P:qf4net.QEventQueue.IsEmpty">
+            <summary>
+            Returns <see langword="true"/> if the <see cref="T:qf4net.QEventQueue"/> is empty
+            </summary>
+        </member>
+        <member name="P:qf4net.QEventQueue.Count">
+            <summary>
+            Number of events in the queue
+            </summary>
+        </member>
+        <member name="T:qf4net.QEventQueue.LinkedEventList">
+            <summary>
+            Simple single linked list for <see cref="T:qf4net.QEvent"/> instances
+            </summary>
+        </member>
+        <member name="M:qf4net.QEventQueue.LinkedEventList.RemoveHeadEvent">
+            <summary>
+            Removes the current head node from the linked list and returns its associated <see cref="T:qf4net.QEvent"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:qf4net.IQActive">
+            <summary>
+            Interface that Active Objects implement.
+            </summary>
+        </member>
+        <member name="M:qf4net.IQActive.Start(System.Int32)">
+            <summary>
+            Start the <see cref="T:qf4net.IQActive"/> object's thread of execution. The caller needs to assign a unique
+            priority to every <see cref="T:qf4net.IQActive"/> object in the system. 
+            </summary>
+            <param name="priority">The priority associated with this <see cref="T:qf4net.IQActive"/> object.</param>
+        </member>
+        <member name="M:qf4net.IQActive.PostFIFO(qf4net.IQEvent)">
+            <summary>
+            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
+            using the FIFO (First In First Out) policy. 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.IQActive.PostLIFO(qf4net.IQEvent)">
+            <summary>
+            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
+            using the LIFO (Last In First Out) policy. 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.IQActive.IsInState(qf4net.QState)">
+            <summary>
+            Determines whether the state machine is in the state specified by <see paramref="inquiredState"/>.
+            </summary>
+            <param name="inquiredState">The state to check for.</param>
+            <returns>
+            <see langword="true"/> if the state machine is in the specified state; 
+            <see langword="false"/> otherwise.
+            </returns>
+            <remarks>
+            If the currently active state of a hierarchical state machine is s then it is in the 
+            state s AND all its parent states.
+            </remarks>
+        </member>
+        <member name="P:qf4net.IQActive.Priority">
+            <summary>
+            The priority associated with this <see cref="T:qf4net.IQActive"/> object. Once the <see cref="T:qf4net.IQActive"/> object
+            is started the priority is non-negative. For an <see cref="T:qf4net.IQActive"/> object that has not yet been started
+            the value -1 is returned as the priority.
+            </summary>
+        </member>
+        <member name="P:qf4net.IQActive.CurrentStateName">
+            <summary>
+            Returns the name of the (deepest) state that the state machine is currently in.
+            </summary>
+        </member>
+        <member name="T:qf4net.QTimer">
+            <summary>
+            Summary description for QTimer.
+            </summary>
+        </member>
+        <member name="M:qf4net.QTimer.#ctor(qf4net.IQActive)">
+            <summary>
+            Creates a new <see cref="T:qf4net.QTimer"/> instance.
+            </summary>
+            <param name="qActive">The <see cref="T:qf4net.IQActive"/> object that owns this <see cref="T:qf4net.QTimer"/>; this is also
+            the <see cref="T:qf4net.IQActive"/> object that will receive the timer based events.</param>
+        </member>
+        <member name="M:qf4net.QTimer.FireIn(System.TimeSpan,qf4net.IQEvent)">
+            <summary>
+            Arms the <see cref="T:qf4net.QTimer"/> to perform a one-time timeout.
+            </summary>
+            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> to wait before the timeout occurs.</param>
+            <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to post into the associated <see cref="T:qf4net.IQActive"/>
+            object when the timeout occurs.</param>
+        </member>
+        <member name="M:qf4net.QTimer.FireEvery(System.TimeSpan,qf4net.IQEvent)">
+            <summary>
+            Arms the <see cref="T:qf4net.QTimer"/> to perform a periodic timeout.
+            </summary>
+            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> interval between individual timeouts.</param>
+            <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to post into the associated <see cref="T:qf4net.IQActive"/>
+            object when the timeout occurs.</param>
+        </member>
+        <member name="M:qf4net.QTimer.Disarm">
+            <summary>
+            Disarms the timer. 
+            </summary>
+        </member>
+        <member name="M:qf4net.QTimer.Rearm(System.TimeSpan)">
+            <summary>
+            Rearms the timer as a one-shot timer.
+            </summary>
+            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> to wait before the timeout occurs.</param>
+        </member>
+        <member name="M:qf4net.QTimer.OnTimer(System.Object)">
+            <summary>
+            Callback for the timer event
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="T:qf4net.IQFTransaction">
+            <summary>
+            IQFTransaction.
+            </summary>
+        </member>
+        <member name="T:qf4net.QEvent">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="T:qf4net.IQEvent">
+            <summary>
+            Interface that a class that can be used for QEvent instances needs to implement.
+            </summary>
+        </member>
+        <member name="M:qf4net.IQEvent.ToString">
+            <summary>
+            The <see cref="T:qf4net.IQEvent"/> instance in string form. It should be implemented to allow for simpler 
+            debugging and logging. 
+            </summary>
+            <returns>The string representation of the <see cref="T:qf4net.IQEvent"/> instance.</returns>
+        </member>
+        <member name="P:qf4net.IQEvent.QSignal">
+            <summary>
+            The identifier of the <see cref="T:qf4net.IQEvent"/> type.
+            </summary>
+        </member>
+        <member name="P:qf4net.IQEvent.QKey">
+            <summary>
+            State machines can link to each other as single (one-to-one) relations
+            or as multiple (one-to-many) - in a one-to-many scenario you could receive
+            an event from a machine on the many side - this key identifies which machine
+            that was.
+            </summary>
+        </member>
+        <member name="P:qf4net.IQEvent.QActivityId">
+            <summary>
+            ActivityId value identifying the event/response sequence that this event is part of.
+            </summary>
+        </member>
+        <member name="M:qf4net.QEvent.#ctor(System.String)">
+            <summary>
+            Default constructor - initializes all fields to default values
+            </summary>
+        </member>
+        <member name="M:qf4net.QEvent.ToString">
+            <summary>
+            The QSignal in string form. It allows for simpler debugging and logging. 
+            </summary>
+            <returns>The signal as string.</returns>
+        </member>
+        <member name="P:qf4net.QEvent.QSignal">
+            <summary>
+            The identifier of the <see cref="T:qf4net.QEvent"/> type.
+            </summary>
+        </member>
+        <member name="T:qf4net.ThreadFactory">
+            <summary>
+            Helper class that encapsulates the creation of threads. By routing all thread requests through
+            this class we have one point in the system where we can switch between various thread strategies
+            like priority based thread pools.
+            </summary>
+        </member>
+        <member name="M:qf4net.ThreadFactory.GetThread(System.Int32,System.Threading.ThreadStart)">
+            <summary>
+            Hands out a <see cref="T:System.Threading.Thread"/> instance.
+            </summary>
+            <param name="priority">The priority for the thread to be handed out.</param>
+            <param name="start">The <see cref="T:System.Threading.ThreadStart"/> delegate pointing to the method that the thread will start on.</param>
+            <returns></returns>
+        </member>
+        <member name="T:qf4net.EventQueueFactory">
+            <summary>
+            Helper class that encapsulates the creation of <see cref="T:qf4net.IQEventQueue"/> instances. The use of a helper
+            class (rather than directly newing up a new QEventQueue) allows us to introduce different implentation strategies
+            event queues without affecting the client code.
+            </summary>
+        </member>
+        <member name="M:qf4net.EventQueueFactory.GetEventQueue">
+            <summary>
+            Hands out a <see cref="T:qf4net.IQEventQueue"/> instance.
             </summary>
         </member>
         <member name="T:qf4net.QHsm">
@@ -266,19 +385,25 @@
             state s AND all its parent states.
             </remarks>
         </member>
+        <member name="M:qf4net.QHsm.Dispatch_Internal(qf4net.IQEvent)">
+            <summary>
+            Dispatches the specified event to this state machine
+            </summary>
+            <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to dispatch.</param>
+        </member>
         <member name="M:qf4net.QHsm.Dispatch(qf4net.IQEvent)">
             <summary>
             Dispatches the specified event to this state machine
             </summary>
             <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to dispatch.</param>
         </member>
-        <member name="M:qf4net.QHsm.OnDispatchException(System.Exception,System.Reflection.MethodInfo,qf4net.IQEvent)">
+        <member name="M:qf4net.QHsm.OnDispatchException(qf4net.IQHsm,System.Exception,System.Reflection.MethodInfo,qf4net.IQEvent)">
             <summary>
             Internal DispatchException handler. Return false to prevent the exception
             from being passed out as a DispatchException event.
             </summary>
         </member>
-        <member name="M:qf4net.QHsm.DoDispatchException(System.Exception,System.Reflection.MethodInfo,qf4net.IQEvent)">
+        <member name="M:qf4net.QHsm.DoDispatchException(qf4net.IQHsm,System.Exception,System.Reflection.MethodInfo,qf4net.IQEvent)">
             <summary>
             DispatchException (see def on IQHsm)
             </summary>
@@ -302,7 +427,7 @@
             <param name="qEvent"></param>
             <returns></returns>
         </member>
-        <member name="M:qf4net.QHsm.Trigger(System.Reflection.MethodInfo,qf4net.QSignals,qf4net.QHsm.TransitionChainRecorder)">
+        <member name="M:qf4net.QHsm.Trigger(System.Reflection.MethodInfo,System.String,qf4net.QHsm.TransitionChainRecorder)">
             <summary>
             Sends the specified signal to the specified state and (optionally) records the transition
             </summary>
@@ -484,163 +609,6 @@
             The size of the <see cref="T:qf4net.QHsm.TransitionChainStore"/>; i.e., the actual number of used slots.
             </summary>
         </member>
-        <member name="M:qf4net.QActive.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:qf4net.QActive"/> class. 
-            </summary>
-        </member>
-        <member name="M:qf4net.QActive.Start(System.Int32)">
-            <summary>
-            Start the <see cref="T:qf4net.IQActive"/> object's thread of execution. The caller needs to assign a unique
-            priority to every <see cref="T:qf4net.IQActive"/> object in the system. 
-            </summary>
-            <param name="priority">The priority associated with this <see cref="T:qf4net.IQActive"/> object.</param>
-        </member>
-        <member name="M:qf4net.QActive.PostFIFO(qf4net.IQEvent)">
-            <summary>
-            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
-            using the FIFO (First In First Out) policy. 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.QActive.PostLIFO(qf4net.IQEvent)">
-            <summary>
-            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
-            using the LIFO (Last In First Out) policy. 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.QActive.DoEventLoop">
-            <summary>
-            This method is executed on the dedicated thread of this <see cref="T:qf4net.QActive"/> instance.
-            </summary>
-        </member>
-        <member name="M:qf4net.QActive.Stop">
-            <summary>
-            Stops the execution thread. Nothing happens thereafter!
-            </summary>
-        </member>
-        <member name="P:qf4net.QActive.Priority">
-            <summary>
-            The priority associated with this <see cref="T:qf4net.IQActive"/> object. Once the <see cref="T:qf4net.IQActive"/> object
-            is started the priority is non-negative. For an <see cref="T:qf4net.IQActive"/> object that has not yet been started
-            the value -1 is returned as the priority.
-            </summary>
-        </member>
-        <member name="T:qf4net.QEvent">
-            <summary>
-             
-            </summary>
-        </member>
-        <member name="M:qf4net.QEvent.#ctor(System.Int32)">
-            <summary>
-            Default constructor - initializes all fields to default values
-            </summary>
-        </member>
-        <member name="M:qf4net.QEvent.ToString">
-            <summary>
-            The QSignal in string form. It allows for simpler debugging and logging. 
-            </summary>
-            <returns>The signal as string.</returns>
-        </member>
-        <member name="P:qf4net.QEvent.QSignal">
-            <summary>
-            The identifier of the <see cref="T:qf4net.QEvent"/> type.
-            </summary>
-        </member>
-        <member name="T:qf4net.QEventQueue">
-            <summary>
-            Thread-safe event queue holding <see cref="T:qf4net.QEvent"/> instances.
-            </summary>
-        </member>
-        <member name="M:qf4net.QEventQueue.#ctor">
-            <summary>
-            Creates a new empty <see cref="T:qf4net.QEventQueue"/>
-            </summary>
-        </member>
-        <member name="M:qf4net.QEventQueue.EnqueueFIFO(qf4net.IQEvent)">
-            <summary>
-            Inserts the <see paramref="qEvent"/> at the end of the queue (First In First Out). 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.QEventQueue.EnqueueLIFO(qf4net.IQEvent)">
-            <summary>
-            Inserts the <see paramref="qEvent"/> at the beginning of the queue (First In First Out). 
-            </summary>
-            <param name="qEvent"></param>
-        </member>
-        <member name="M:qf4net.QEventQueue.DeQueue">
-            <summary>
-            Dequeues the first <see cref="T:qf4net.QEvent"/> in the <see cref="T:qf4net.QEventQueue"/>. If the <see cref="T:qf4net.QEventQueue"/>
-            is currently empty then it blocks until the a new <see cref="T:qf4net.QEvent"/> is put into the <see cref="T:qf4net.QEventQueue"/>.
-            </summary>
-            <returns>The first <see cref="T:qf4net.QEvent"/> in the <see cref="T:qf4net.QEventQueue"/>.</returns>
-        </member>
-        <member name="P:qf4net.QEventQueue.IsEmpty">
-            <summary>
-            Returns <see langword="true"/> if the <see cref="T:qf4net.QEventQueue"/> is empty
-            </summary>
-        </member>
-        <member name="P:qf4net.QEventQueue.Count">
-            <summary>
-            Number of events in the queue
-            </summary>
-        </member>
-        <member name="T:qf4net.QEventQueue.LinkedEventList">
-            <summary>
-            Simple single linked list for <see cref="T:qf4net.QEvent"/> instances
-            </summary>
-        </member>
-        <member name="M:qf4net.QEventQueue.LinkedEventList.RemoveHeadEvent">
-            <summary>
-            Removes the current head node from the linked list and returns its associated <see cref="T:qf4net.QEvent"/>.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:qf4net.QF">
-            <summary>
-            QF singleton. This is the class that handles the delivery of events.
-            </summary>
-        </member>
-        <member name="M:qf4net.QF.Initialize(System.Int32)">
-            <summary>
-            Initializes the the quantum framework. Must be called exactly once before any of the other methods on
-            <see cref="T:qf4net.IQF"/> can be used.
-            </summary>
-            <param name="maxSignal">The maximal signal that the <see cref="T:qf4net.IQF"/> must be able to handle.</param>
-        </member>
-        <member name="M:qf4net.QF.Subscribe(qf4net.IQActive,System.Int32)">
-            <summary>
-            Allows an <see cref="T:qf4net.IQActive"/> object to subscribe for a given signal.
-            </summary>
-            <param name="qActive">The subscribing <see cref="T:qf4net.IQActive"/> object.</param>
-            <param name="qSignal">The signal to subscribe for.</param>
-        </member>
-        <member name="M:qf4net.QF.Unsubscribe(qf4net.IQActive,System.Int32)">
-            <summary>
-            Allows an <see cref="T:qf4net.IQActive"/> object to unsubscribe for a given signal.
-            </summary>
-            <param name="qActive">The unsubscribing <see cref="T:qf4net.IQActive"/> object.</param>
-            <param name="qSignal">The signal to unsubscribe.</param>
-        </member>
-        <member name="M:qf4net.QF.Publish(qf4net.QEvent)">
-            <summary>
-            Allows an event source to publish an event. 
-            </summary>
-            <param name="qEvent">The <see cref="T:qf4net.QEvent"/> to publish.</param>
-        </member>
-        <member name="P:qf4net.QF.Instance">
-            <summary>
-            Allows a client application to get the instance of the singleton <see cref="T:qf4net.IQF"/>.
-            </summary>
-            <returns>Reference to the singleton <see cref="T:qf4net.IQF"/> instance.</returns>
-        </member>
-        <member name="T:qf4net.QF.SubscriberList">
-            <summary>
-            This class encapsulates the storage of the inforamtion about subscribers for a given event type (signal) 
-            </summary>
-        </member>
         <member name="T:qf4net.QHsmQ">
             <summary>
             Designed to allow a state machine to post NEW messages to itself during the handling of a dispatch call. 
@@ -684,6 +652,60 @@
             Empties the event queue
             </summary>
         </member>
+        <member name="T:qf4net.QActive">
+            <summary>
+            The base class for Active Objects.
+            </summary>
+        </member>
+        <member name="M:qf4net.QActive.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:qf4net.QActive"/> class. 
+            </summary>
+        </member>
+        <member name="M:qf4net.QActive.Start(System.Int32)">
+            <summary>
+            Start the <see cref="T:qf4net.IQActive"/> object's thread of execution. The caller needs to assign a unique
+            priority to every <see cref="T:qf4net.IQActive"/> object in the system. 
+            </summary>
+            <param name="priority">The priority associated with this <see cref="T:qf4net.IQActive"/> object.</param>
+        </member>
+        <member name="M:qf4net.QActive.PostFIFO(qf4net.IQEvent)">
+            <summary>
+            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
+            using the FIFO (First In First Out) policy. 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.QActive.PostLIFO(qf4net.IQEvent)">
+            <summary>
+            Post the <see paramref="qEvent"/> directly to the <see cref="T:qf4net.IQActive"/> object's event queue
+            using the LIFO (Last In First Out) policy. 
+            </summary>
+            <param name="qEvent"></param>
+        </member>
+        <member name="M:qf4net.QActive.DoEventLoop">
+            <summary>
+            This method is executed on the dedicated thread of this <see cref="T:qf4net.QActive"/> instance.
+            </summary>
+        </member>
+        <member name="M:qf4net.QActive.Abort">
+            <summary>
+            Aborts the execution thread. Nothing happens thereafter!
+            </summary>
+        </member>
+        <member name="M:qf4net.QActive.OnExecutionAborted">
+            <summary>
+            Allows a deriving class to react to the fact that the execution 
+            of the active object has been aborted.
+            </summary>
+        </member>
+        <member name="P:qf4net.QActive.Priority">
+            <summary>
+            The priority associated with this <see cref="T:qf4net.IQActive"/> object. Once the <see cref="T:qf4net.IQActive"/> object
+            is started the priority is non-negative. For an <see cref="T:qf4net.IQActive"/> object that has not yet been started
+            the value -1 is returned as the priority.
+            </summary>
+        </member>
         <member name="T:qf4net.QSignals">
             <summary>
             An enumeration that holds the signal types that are intrinsically used by
@@ -720,65 +742,80 @@
             Entry in the enumeration that marks the first slot that is available for custom signals.
             </summary>
         </member>
-        <member name="T:qf4net.QTimer">
+        <member name="T:qf4net.QF">
             <summary>
-            Summary description for QTimer.
+            QF singleton. This is the class that handles the delivery of events.
             </summary>
         </member>
-        <member name="M:qf4net.QTimer.#ctor(qf4net.IQActive)">
+        <member name="T:qf4net.IQF">
             <summary>
-            Creates a new <see cref="T:qf4net.QTimer"/> instance.
-            </summary>
-            <param name="qActive">The <see cref="T:qf4net.IQActive"/> object that owns this <see cref="T:qf4net.QTimer"/>; this is also
-            the <see cref="T:qf4net.IQActive"/> object that will receive the timer based events.</param>
-        </member>
-        <member name="M:qf4net.QTimer.FireIn(System.TimeSpan,qf4net.IQEvent)">
-            <summary>
-            Arms the <see cref="T:qf4net.QTimer"/> to perform a one-time timeout.
-            </summary>
-            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> to wait before the timeout occurs.</param>
-            <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to post into the associated <see cref="T:qf4net.IQActive"/>
-            object when the timeout occurs.</param>
-        </member>
-        <member name="M:qf4net.QTimer.FireEvery(System.TimeSpan,qf4net.IQEvent)">
-            <summary>
-            Arms the <see cref="T:qf4net.QTimer"/> to perform a periodic timeout.
-            </summary>
-            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> interval between individual timeouts.</param>
-            <param name="qEvent">The <see cref="T:qf4net.IQEvent"/> to post into the associated <see cref="T:qf4net.IQActive"/>
-            object when the timeout occurs.</param>
-        </member>
-        <member name="M:qf4net.QTimer.Disarm">
-            <summary>
-            Disarms the timer. 
+            Interface implemented by the QF
             </summary>
         </member>
-        <member name="M:qf4net.QTimer.Rearm(System.TimeSpan)">
+        <member name="M:qf4net.IQF.Initialize(System.Int32)">
             <summary>
-            Rearms the timer as a one-shot timer.
+            Initializes the the quantum framework. Must be called exactly once before any of the other methods on
+            <see cref="T:qf4net.IQF"/> can be used.
             </summary>
-            <param name="timeSpan">The <see cref="T:System.TimeSpan"/> to wait before the timeout occurs.</param>
+            <param name="maxSignal">The maximal signal that the <see cref="T:qf4net.IQF"/> must be able to handle.</param>
         </member>
-        <member name="M:qf4net.QTimer.OnTimer(System.Object)">
+        <member name="M:qf4net.IQF.Subscribe(qf4net.IQActive,System.String)">
             <summary>
-            Callback for the timer event
+            Allows an <see cref="T:qf4net.IQActive"/> object to subscribe for a given signal.
             </summary>
-            <param name="state"></param>
+            <param name="qActive">The subscribing <see cref="T:qf4net.IQActive"/> object.</param>
+            <param name="qSignal">The signal to subscribe for.</param>
         </member>
-        <member name="T:qf4net.ThreadFactory">
+        <member name="M:qf4net.IQF.Unsubscribe(qf4net.IQActive,System.String)">
             <summary>
-            Helper class that encapsulates the creation of threads. By routing all thread requests through
-            this class we have one point in the system where we can switch between various thread strategies
-            like priority based thread pools.
+            Allows an <see cref="T:qf4net.IQActive"/> object to unsubscribe for a given signal.
             </summary>
+            <param name="qActive">The unsubscribing <see cref="T:qf4net.IQActive"/> object.</param>
+            <param name="qSignal">The signal to unsubscribe.</param>
         </member>
-        <member name="M:qf4net.ThreadFactory.GetThread(System.Int32,System.Threading.ThreadStart)">
+        <member name="M:qf4net.IQF.Publish(qf4net.QEvent)">
             <summary>
-            Hands out a <see cref="T:System.Threading.Thread"/> instance.
+            Allows an event source to publish an event. 
             </summary>
-            <param name="priority">The priority for the thread to be handed out.</param>
-            <param name="start">The <see cref="T:System.Threading.ThreadStart"/> delegate pointing to the method that the thread will start on.</param>
-            <returns></returns>
+            <param name="qEvent">The <see cref="T:qf4net.QEvent"/> to publish.</param>
+        </member>
+        <member name="M:qf4net.QF.Initialize(System.Int32)">
+            <summary>
+            Initializes the the quantum framework. Must be called exactly once before any of the other methods on
+            <see cref="T:qf4net.IQF"/> can be used.
+            </summary>
+            <param name="maxSignal">The maximal signal that the <see cref="T:qf4net.IQF"/> must be able to handle.</param>
+        </member>
+        <member name="M:qf4net.QF.Subscribe(qf4net.IQActive,System.String)">
+            <summary>
+            Allows an <see cref="T:qf4net.IQActive"/> object to subscribe for a given signal.
+            </summary>
+            <param name="qActive">The subscribing <see cref="T:qf4net.IQActive"/> object.</param>
+            <param name="qSignal">The signal to subscribe for.</param>
+        </member>
+        <member name="M:qf4net.QF.Unsubscribe(qf4net.IQActive,System.String)">
+            <summary>
+            Allows an <see cref="T:qf4net.IQActive"/> object to unsubscribe for a given signal.
+            </summary>
+            <param name="qActive">The unsubscribing <see cref="T:qf4net.IQActive"/> object.</param>
+            <param name="qSignal">The signal to unsubscribe.</param>
+        </member>
+        <member name="M:qf4net.QF.Publish(qf4net.QEvent)">
+            <summary>
+            Allows an event source to publish an event. 
+            </summary>
+            <param name="qEvent">The <see cref="T:qf4net.QEvent"/> to publish.</param>
+        </member>
+        <member name="P:qf4net.QF.Instance">
+            <summary>
+            Allows a client application to get the instance of the singleton <see cref="T:qf4net.IQF"/>.
+            </summary>
+            <returns>Reference to the singleton <see cref="T:qf4net.IQF"/> instance.</returns>
+        </member>
+        <member name="T:qf4net.QF.SubscriberList">
+            <summary>
+            This class encapsulates the storage of the inforamtion about subscribers for a given event type (signal) 
+            </summary>
         </member>
     </members>
 </doc>

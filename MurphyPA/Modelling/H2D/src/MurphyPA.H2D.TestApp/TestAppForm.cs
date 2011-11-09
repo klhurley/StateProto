@@ -27,11 +27,8 @@ namespace MurphyPA.H2D.TestApp
 		private System.Windows.Forms.MenuItem newStateChartDiagramMenuItem;
 		private System.Windows.Forms.MenuItem toolsMenuItem;
 		private System.Windows.Forms.MenuItem publishUpdateMenuItem;
-		private System.Windows.Forms.MenuItem updateApplicationMenuItem;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        private System.Windows.Forms.MenuItem updateApplicationMenuItem;
+        private IContainer components;
 
 		public TestAppForm()
 		{
@@ -67,13 +64,13 @@ namespace MurphyPA.H2D.TestApp
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(TestAppForm));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestAppForm));
             this.logPanel = new System.Windows.Forms.Panel();
             this.LogViewer = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.clearLogButton = new System.Windows.Forms.Button();
-            this.stateDiagramView = new MurphyPA.H2D.TestApp.StateDiagramView();
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.exitApplicationMenuItem = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
@@ -85,6 +82,7 @@ namespace MurphyPA.H2D.TestApp
             this.windowCascadeMenuItem = new System.Windows.Forms.MenuItem();
             this.windowTileVerticalMenuItem = new System.Windows.Forms.MenuItem();
             this.windowTileHorizontalMenuItem = new System.Windows.Forms.MenuItem();
+            this.stateDiagramView = new MurphyPA.H2D.TestApp.StateDiagramView();
             this.logPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +94,7 @@ namespace MurphyPA.H2D.TestApp
             this.logPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logPanel.Location = new System.Drawing.Point(784, 0);
             this.logPanel.Name = "logPanel";
-            this.logPanel.Size = new System.Drawing.Size(216, 558);
+            this.logPanel.Size = new System.Drawing.Size(216, 537);
             this.logPanel.TabIndex = 5;
             // 
             // LogViewer
@@ -104,7 +102,7 @@ namespace MurphyPA.H2D.TestApp
             this.LogViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LogViewer.Location = new System.Drawing.Point(0, 56);
             this.LogViewer.Name = "LogViewer";
-            this.LogViewer.Size = new System.Drawing.Size(216, 502);
+            this.LogViewer.Size = new System.Drawing.Size(216, 481);
             this.LogViewer.TabIndex = 2;
             this.LogViewer.Text = "";
             // 
@@ -121,31 +119,24 @@ namespace MurphyPA.H2D.TestApp
             // 
             this.clearLogButton.Location = new System.Drawing.Point(16, 16);
             this.clearLogButton.Name = "clearLogButton";
+            this.clearLogButton.Size = new System.Drawing.Size(75, 23);
             this.clearLogButton.TabIndex = 0;
             this.clearLogButton.Text = "&Clear";
             this.clearLogButton.Click += new System.EventHandler(this.clearLogButton_Click);
             // 
-            // stateDiagramView
-            // 
-            this.stateDiagramView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.stateDiagramView.Location = new System.Drawing.Point(0, 0);
-            this.stateDiagramView.Name = "stateDiagramView";
-            this.stateDiagramView.Size = new System.Drawing.Size(784, 558);
-            this.stateDiagramView.TabIndex = 6;
-            // 
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.menuItem1,
-                                                                                      this.menuItem5,
-                                                                                      this.toolsMenuItem,
-                                                                                      this.menuItem3});
+            this.menuItem1,
+            this.menuItem5,
+            this.toolsMenuItem,
+            this.menuItem3});
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.exitApplicationMenuItem});
+            this.exitApplicationMenuItem});
             this.menuItem1.Text = "&File";
             // 
             // exitApplicationMenuItem
@@ -158,7 +149,7 @@ namespace MurphyPA.H2D.TestApp
             // 
             this.menuItem5.Index = 1;
             this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.newStateChartDiagramMenuItem});
+            this.newStateChartDiagramMenuItem});
             this.menuItem5.Text = "Dia&gram";
             // 
             // newStateChartDiagramMenuItem
@@ -172,8 +163,8 @@ namespace MurphyPA.H2D.TestApp
             // 
             this.toolsMenuItem.Index = 2;
             this.toolsMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                          this.publishUpdateMenuItem,
-                                                                                          this.updateApplicationMenuItem});
+            this.publishUpdateMenuItem,
+            this.updateApplicationMenuItem});
             this.toolsMenuItem.Text = "&Tools";
             // 
             // publishUpdateMenuItem
@@ -193,9 +184,9 @@ namespace MurphyPA.H2D.TestApp
             this.menuItem3.Index = 3;
             this.menuItem3.MdiList = true;
             this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.windowCascadeMenuItem,
-                                                                                      this.windowTileVerticalMenuItem,
-                                                                                      this.windowTileHorizontalMenuItem});
+            this.windowCascadeMenuItem,
+            this.windowTileVerticalMenuItem,
+            this.windowTileHorizontalMenuItem});
             this.menuItem3.Text = "&Window";
             // 
             // windowCascadeMenuItem
@@ -216,10 +207,18 @@ namespace MurphyPA.H2D.TestApp
             this.windowTileHorizontalMenuItem.Text = "Tile &Horizontal";
             this.windowTileHorizontalMenuItem.Click += new System.EventHandler(this.windowTileHorizontalMenuItem_Click);
             // 
+            // stateDiagramView
+            // 
+            this.stateDiagramView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.stateDiagramView.Location = new System.Drawing.Point(0, 0);
+            this.stateDiagramView.Name = "stateDiagramView";
+            this.stateDiagramView.Size = new System.Drawing.Size(784, 537);
+            this.stateDiagramView.TabIndex = 6;
+            // 
             // TestAppForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(1000, 558);
+            this.ClientSize = new System.Drawing.Size(1000, 537);
             this.Controls.Add(this.logPanel);
             this.Controls.Add(this.stateDiagramView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -228,8 +227,8 @@ namespace MurphyPA.H2D.TestApp
             this.Name = "TestAppForm";
             this.Text = "StateChartProto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.TestAppForm_Closing);
             this.Load += new System.EventHandler(this.TestAppForm_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.TestAppForm_Closing);
             this.logPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
