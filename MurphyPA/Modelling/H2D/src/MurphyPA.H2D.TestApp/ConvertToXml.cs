@@ -57,7 +57,7 @@ namespace MurphyPA.H2D.TestApp
 			{
 				_Writer.WriteAttributeString ("Name", glyph.Name);
 				_Writer.WriteAttributeString ("Id", glyph.Id);
-				_Writer.WriteAttributeString ("DoNotInstrument", glyph.DoNotInstrument.ToString ());
+				_Writer.WriteAttributeString ("DoNotInstrument", glyph.DoNotInstrument.ToString().ToLower());
 
 				_Writer.WriteElementString ("Note", glyph.Note);
 
@@ -117,7 +117,7 @@ namespace MurphyPA.H2D.TestApp
 				_Writer.WriteElementString ("Action", transition.Action);
 				_Writer.WriteElementString ("EvaluationOrderPriority", transition.EvaluationOrderPriority.ToString ());
 				_Writer.WriteElementString ("EventType", transition.EventType);
-				_Writer.WriteElementString ("IsInnerTransition", transition.IsInnerTransition.ToString ());
+				_Writer.WriteElementString ("IsInnerTransition", transition.IsInnerTransition.ToString().ToLower());
 				_Writer.WriteElementString ("TimeOutExpression", transition.TimeOutExpression);
 				_Writer.WriteElementString ("TransitionType", transition.TransitionType.ToString ());
 
@@ -145,19 +145,19 @@ namespace MurphyPA.H2D.TestApp
 			{
 				WriteDefaults (component);
 				_Writer.WriteElementString ("TypeName", component.TypeName);
-                _Writer.WriteElementString ("IsMultiInstance", component.IsMultiInstance.ToString ());
+                _Writer.WriteElementString ("IsMultiInstance", component.IsMultiInstance.ToString().ToLower());
 			}
 
 			public void Visit (IStateTransitionPortGlyph port)
 			{
 				WriteDefaults (port);
-				_Writer.WriteElementString ("IsMultiPort", port.IsMultiPort.ToString ());
+                _Writer.WriteElementString("IsMultiPort", port.IsMultiPort.ToString().ToLower());
 			}
 
 			public void Visit(IStateGlyph state)
 			{
 				WriteDefaults (state);
-				_Writer.WriteElementString ("IsStartState", state.IsStartState.ToString ());
+                _Writer.WriteElementString("IsStartState", state.IsStartState.ToString().ToLower());
 				_Writer.WriteElementString ("EntryAction", state.EntryAction);
 				_Writer.WriteElementString ("ExitAction", state.ExitAction);
 				_Writer.WriteStartElement ("StateCommands");

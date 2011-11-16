@@ -76,21 +76,6 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MurphyPA.H2D.Implementation">
-      <Name>MurphyPA.H2D.Implementation</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Implementation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MurphyPA.H2D.Interfaces">
-      <Name>MurphyPA.H2D.Interfaces</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Interfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MurphyPA.H2D.StateProto">
-      <Name>MurphyPA.H2D.StateProto</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.StateProto.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -113,6 +98,24 @@
     <Compile Include="EntryPoint.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoggingUtil\LoggingUtil.csproj">
+      <Project>{F3C191DA-C9B7-439F-A657-2824646DBB5B}</Project>
+      <Name>LoggingUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj">
+      <Project>{C237BE29-6B6A-4E1C-822B-E769C38BD04A}</Project>
+      <Name>MurphyPA.H2D.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj">
+      <Project>{50A063AD-E7DD-425B-BC91-A040DA061A6F}</Project>
+      <Name>MurphyPA.H2D.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.TestApp\MurphyPA.H2D.TestApp.csproj">
+      <Project>{E7863CCB-E822-4D73-B108-E1618087399A}</Project>
+      <Name>MurphyPA.H2D.TestApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

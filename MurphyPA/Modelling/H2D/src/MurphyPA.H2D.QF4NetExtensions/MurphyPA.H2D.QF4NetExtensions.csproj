@@ -29,7 +29,7 @@
     <OldToolsVersion>0.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\..\bin\lib\qf4net\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\lib\qf4net\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -53,7 +53,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\..\bin\lib\qf4net\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\lib\qf4net\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -77,16 +77,6 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LoggingUtil">
-      <Name>LoggingUtil</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\common\LoggingUtil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="qf4net">
-      <Name>qf4net</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\qf4net.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -287,6 +277,16 @@
     <Compile Include="TransitionEventAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\ThirdPartyLibraries\HierarchicalStateMachine\src\qf4net.csproj">
+      <Project>{068CD5CC-1000-430B-A575-A1E5644EDFD3}</Project>
+      <Name>qf4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggingUtil\LoggingUtil.csproj">
+      <Project>{F3C191DA-C9B7-439F-A657-2824646DBB5B}</Project>
+      <Name>LoggingUtil</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

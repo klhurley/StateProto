@@ -75,11 +75,6 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LoggingUtil">
-      <Name>LoggingUtil</Name>
-      <HintPath>..\..\..\..\bin\lib\common\LoggingUtil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -142,6 +137,12 @@
     <Compile Include="ThreadFactory.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MurphyPA\Modelling\H2D\src\LoggingUtil\LoggingUtil.csproj">
+      <Project>{F3C191DA-C9B7-439F-A657-2824646DBB5B}</Project>
+      <Name>LoggingUtil</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

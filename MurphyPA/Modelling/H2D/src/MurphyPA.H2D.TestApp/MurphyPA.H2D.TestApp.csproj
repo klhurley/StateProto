@@ -75,31 +75,6 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LoggingUtil">
-      <Name>LoggingUtil</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\common\LoggingUtil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MurphyPA.H2D.Implementation">
-      <Name>MurphyPA.H2D.Implementation</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Implementation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MurphyPA.H2D.Interfaces">
-      <Name>MurphyPA.H2D.Interfaces</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\stateproto\MurphyPA.H2D.Interfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="qf4net">
-      <Name>qf4net</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\qf4net.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="StepByStep.Modelling.QF4NetExtensions">
-      <Name>StepByStep.Modelling.QF4NetExtensions</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\StepByStep.Modelling.QF4NetExtensions.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -298,6 +273,28 @@
     <EmbeddedResource Include="TestStateGlyphControl.resx">
       <DependentUpon>TestStateGlyphControl.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\ThirdPartyLibraries\HierarchicalStateMachine\src\qf4net.csproj">
+      <Project>{068CD5CC-1000-430B-A575-A1E5644EDFD3}</Project>
+      <Name>qf4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggingUtil\LoggingUtil.csproj">
+      <Project>{F3C191DA-C9B7-439F-A657-2824646DBB5B}</Project>
+      <Name>LoggingUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj">
+      <Project>{C237BE29-6B6A-4E1C-822B-E769C38BD04A}</Project>
+      <Name>MurphyPA.H2D.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj">
+      <Project>{50A063AD-E7DD-425B-BC91-A040DA061A6F}</Project>
+      <Name>MurphyPA.H2D.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MurphyPA.H2D.QF4NetExtensions\MurphyPA.H2D.QF4NetExtensions.csproj">
+      <Project>{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}</Project>
+      <Name>MurphyPA.H2D.QF4NetExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
