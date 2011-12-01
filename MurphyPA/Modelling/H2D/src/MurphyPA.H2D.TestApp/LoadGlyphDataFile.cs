@@ -314,10 +314,10 @@ namespace MurphyPA.H2D.TestApp
 		string ClearZeroTimeOut (string timeoutExpression)
 		{
 			timeoutExpression = timeoutExpression.Trim ();
-			if (timeoutExpression == "0")
-			{
-				return "";
-			}
+			//if (timeoutExpression == "0")
+			//{
+		    //return "";
+			//}
 			return timeoutExpression;
 		}
 
