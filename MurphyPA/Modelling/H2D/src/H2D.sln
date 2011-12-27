@@ -1,5 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.Interfaces", "MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj", "{50A063AD-E7DD-425B-BC91-A040DA061A6F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F3C191DA-C9B7-439F-A657-2824646DBB5B} = {F3C191DA-C9B7-439F-A657-2824646DBB5B}
