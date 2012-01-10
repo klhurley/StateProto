@@ -10,7 +10,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>MurphyPA.H2D.StateProto</AssemblyName>
+    <AssemblyName>MurphyPA.H2D.TestApp</AssemblyName>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -27,7 +27,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\bin\lib\stateproto\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\Debug</OutputPath>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
@@ -45,7 +45,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\bin\lib\stateproto\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\Release\</OutputPath>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
@@ -62,6 +62,11 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="qf4Net, Version=1.1.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\qf4Net\bin\$(ConfigurationName)\qf4Net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -173,11 +178,7 @@
     <Compile Include="ProcessComponentFrameExecutionView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="QHsmExecutionController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -193,7 +194,6 @@
     <Compile Include="SaveGlyphDataFile.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="SignalActionParser.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -269,33 +269,27 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\ThirdPartyLibraries\HierarchicalStateMachine\src\qf4net.csproj">
-      <Project>{068CD5CC-1000-430B-A575-A1E5644EDFD3}</Project>
-      <Name>qf4net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LoggingUtil\LoggingUtil.csproj">
-      <Project>{F3C191DA-C9B7-439F-A657-2824646DBB5B}</Project>
-      <Name>LoggingUtil</Name>
-    </ProjectReference>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj">
       <Project>{C237BE29-6B6A-4E1C-822B-E769C38BD04A}</Project>
       <Name>MurphyPA.H2D.Implementation</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj">
       <Project>{50A063AD-E7DD-425B-BC91-A040DA061A6F}</Project>
       <Name>MurphyPA.H2D.Interfaces</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\MurphyPA.H2D.QF4NetExtensions\MurphyPA.H2D.QF4NetExtensions.csproj">
       <Project>{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}</Project>
       <Name>MurphyPA.H2D.QF4NetExtensions</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

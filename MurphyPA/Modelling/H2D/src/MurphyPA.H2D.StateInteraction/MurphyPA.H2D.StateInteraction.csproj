@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
@@ -25,7 +25,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\bin\lib\stateproto_qf4net\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\Debug</OutputPath>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
@@ -43,7 +43,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\..\..\..\bin\lib\stateproto_qf4net\</OutputPath>
+    <OutputPath>..\..\..\..\..\bin\Release\</OutputPath>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
@@ -60,9 +60,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="qf4net">
-      <Name>qf4net</Name>
-      <HintPath>..\..\..\..\..\..\bin\lib\qf4net\qf4net.dll</HintPath>
+    <Reference Include="qf4Net, Version=1.1.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\qf4Net\bin\$(ConfigurationName)\qf4Net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System">
@@ -87,21 +87,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj">
-      <Project>{C237BE29-6B6A-4E1C-822B-E769C38BD04A}</Project>
-      <Name>MurphyPA.H2D.Implementation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj">
       <Project>{50A063AD-E7DD-425B-BC91-A040DA061A6F}</Project>
       <Name>MurphyPA.H2D.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MurphyPA.H2D.QF4NetExtensions\MurphyPA.H2D.QF4NetExtensions.csproj">
-      <Project>{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}</Project>
-      <Name>MurphyPA.H2D.QF4NetExtensions</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\MurphyPA.H2D.TestApp\MurphyPA.H2D.TestApp.csproj">
       <Project>{E7863CCB-E822-4D73-B108-E1618087399A}</Project>
       <Name>MurphyPA.H2D.TestApp</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

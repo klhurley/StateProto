@@ -16,7 +16,7 @@ namespace MurphyPA.H2D.TestApp
 		{
 			Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
 			AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
-			Application.Run(new TestAppForm ());
+			Application.Run(new TestAppForm (Properties.Settings.Default));
 		}
 
 		private static void HandleThreadException(object sender, string caption, Exception ex)

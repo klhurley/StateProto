@@ -1,31 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.Interfaces", "MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj", "{50A063AD-E7DD-425B-BC91-A040DA061A6F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B} = {F3C191DA-C9B7-439F-A657-2824646DBB5B}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.Implementation", "MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj", "{C237BE29-6B6A-4E1C-822B-E769C38BD04A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{50A063AD-E7DD-425B-BC91-A040DA061A6F} = {50A063AD-E7DD-425B-BC91-A040DA061A6F}
-	EndProjectSection
-EndProject
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.TestApp", "MurphyPA.H2D.TestApp\MurphyPA.H2D.TestApp.csproj", "{E7863CCB-E822-4D73-B108-E1618087399A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C237BE29-6B6A-4E1C-822B-E769C38BD04A} = {C237BE29-6B6A-4E1C-822B-E769C38BD04A}
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70} = {DC27C78F-0C9A-4B22-B51F-A2613EB18D70}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qf4net", "..\..\..\..\ThirdPartyLibraries\HierarchicalStateMachine\src\qf4net.csproj", "{068CD5CC-1000-430B-A575-A1E5644EDFD3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B} = {F3C191DA-C9B7-439F-A657-2824646DBB5B}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.QF4NetExtensions", "MurphyPA.H2D.QF4NetExtensions\MurphyPA.H2D.QF4NetExtensions.csproj", "{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}"
-	ProjectSection(ProjectDependencies) = postProject
-		{068CD5CC-1000-430B-A575-A1E5644EDFD3} = {068CD5CC-1000-430B-A575-A1E5644EDFD3}
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B} = {F3C191DA-C9B7-439F-A657-2824646DBB5B}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateProto", "StateProto\StateProto.csproj", "{C922103E-8A18-47D0-92E5-0430288A28DA}"
@@ -33,13 +12,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateProto", "StateProto\St
 		{E7863CCB-E822-4D73-B108-E1618087399A} = {E7863CCB-E822-4D73-B108-E1618087399A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingUtil", "LoggingUtil\LoggingUtil.csproj", "{F3C191DA-C9B7-439F-A657-2824646DBB5B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.StateInteraction", "MurphyPA.H2D.StateInteraction\MurphyPA.H2D.StateInteraction.csproj", "{7FA8F10A-4AC6-43E3-BB56-CB09996F5970}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70} = {DC27C78F-0C9A-4B22-B51F-A2613EB18D70}
 		{E7863CCB-E822-4D73-B108-E1618087399A} = {E7863CCB-E822-4D73-B108-E1618087399A}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.Implementation", "MurphyPA.H2D.Implementation\MurphyPA.H2D.Implementation.csproj", "{C237BE29-6B6A-4E1C-822B-E769C38BD04A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.Interfaces", "MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj", "{50A063AD-E7DD-425B-BC91-A040DA061A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurphyPA.H2D.QF4NetExtensions", "MurphyPA.H2D.QF4NetExtensions\MurphyPA.H2D.QF4NetExtensions.csproj", "{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +30,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{068CD5CC-1000-430B-A575-A1E5644EDFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{068CD5CC-1000-430B-A575-A1E5644EDFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{068CD5CC-1000-430B-A575-A1E5644EDFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{068CD5CC-1000-430B-A575-A1E5644EDFD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7863CCB-E822-4D73-B108-E1618087399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7863CCB-E822-4D73-B108-E1618087399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7863CCB-E822-4D73-B108-E1618087399A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7863CCB-E822-4D73-B108-E1618087399A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C922103E-8A18-47D0-92E5-0430288A28DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C922103E-8A18-47D0-92E5-0430288A28DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C922103E-8A18-47D0-92E5-0430288A28DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C922103E-8A18-47D0-92E5-0430288A28DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FA8F10A-4AC6-43E3-BB56-CB09996F5970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FA8F10A-4AC6-43E3-BB56-CB09996F5970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA8F10A-4AC6-43E3-BB56-CB09996F5970}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,27 +46,19 @@ Global
 		{C237BE29-6B6A-4E1C-822B-E769C38BD04A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C237BE29-6B6A-4E1C-822B-E769C38BD04A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C237BE29-6B6A-4E1C-822B-E769C38BD04A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C922103E-8A18-47D0-92E5-0430288A28DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C922103E-8A18-47D0-92E5-0430288A28DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C922103E-8A18-47D0-92E5-0430288A28DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C922103E-8A18-47D0-92E5-0430288A28DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A063AD-E7DD-425B-BC91-A040DA061A6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC27C78F-0C9A-4B22-B51F-A2613EB18D70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7863CCB-E822-4D73-B108-E1618087399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7863CCB-E822-4D73-B108-E1618087399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7863CCB-E822-4D73-B108-E1618087399A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7863CCB-E822-4D73-B108-E1618087399A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3C191DA-C9B7-439F-A657-2824646DBB5B}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MurphyPA.H2D.Interfaces\MurphyPA.H2D.Interfaces.csproj
 	EndGlobalSection
 EndGlobal

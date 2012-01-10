@@ -19,7 +19,7 @@ namespace MurphyPA.H2D.TestApp
 
 		public override void Execute()
 		{
-            string lastFileDirectory = Properties.Settings.Default.LastFileOpenDirectory;
+            string lastFileDirectory = (string)Properties.Settings.Default["LastFileOpenDirectory"];
 
             if (lastFileDirectory.Length == 0)
             {
@@ -34,9 +34,9 @@ namespace MurphyPA.H2D.TestApp
 				LoadFile (_OpenFileDialog.FileName);
 				Context.ShowHeader ();
 				Context.Model.Header.ReadOnly = Context.Model.HasGlyphs();
-                Properties.Settings.Default.LastFileOpenDirectory = Path.GetDirectoryName(_OpenFileDialog.FileName);
+                
+                Properties.Settings.Default["LastFileOpenDirectory"] = Path.GetDirectoryName(_OpenFileDialog.FileName);
                 Properties.Settings.Default.Save();
-                Properties.Settings.Default.Upgrade();
             }
 		}
 

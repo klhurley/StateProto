@@ -22,7 +22,7 @@ namespace MurphyPA.H2D.TestApp
 
 			_SaveFileDialog.FileName = GetXmlFileNameFor (Context.Model);
 
-            string lastXMLFileDirectory = Properties.Settings.Default.LastXMLFileDirectory;
+            string lastXMLFileDirectory = (string)Properties.Settings.Default["LastXMLFileDirectory"];
 
             if (lastXMLFileDirectory.Length == 0)
             {
@@ -56,9 +56,8 @@ namespace MurphyPA.H2D.TestApp
 					File.Move (genFileName, fileName);
 					SaveXmlFileMapping (Context.Model, fileName);
 
-                    Properties.Settings.Default.LastXMLFileDirectory = Path.GetDirectoryName(fileName);
+                    Properties.Settings.Default["LastXMLFileDirectory"] = Path.GetDirectoryName(fileName);
                     Properties.Settings.Default.Save();
-                    Properties.Settings.Default.Upgrade();
                 } 
 				else 
 				{

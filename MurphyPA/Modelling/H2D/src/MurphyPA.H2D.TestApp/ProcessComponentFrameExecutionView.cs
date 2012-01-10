@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
+using MurphyPA.H2D.QF4NetExtensions;
 
 namespace MurphyPA.H2D.TestApp
 {
@@ -273,7 +274,7 @@ namespace MurphyPA.H2D.TestApp
 
 							Form frm = new OkCancelForm ();
 							frm.Text = "Event " + te.EventName;
-							qf4net.QEventDefaultEditContext ctx = new qf4net.QEventDefaultEditContext (frm);
+							QEventDefaultEditContext ctx = new QEventDefaultEditContext (frm);
 							if (eventEditor.Edit (ctx) == false)
 							{
 								return;

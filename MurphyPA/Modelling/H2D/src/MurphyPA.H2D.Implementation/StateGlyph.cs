@@ -320,5 +320,11 @@ namespace MurphyPA.H2D.Implementation
 				return _StateCommands;
 			}
 		}
+
+        public override string ToString()
+        {
+            return this.Name;
+            //return base.ToString();
+        }
 	}
 }

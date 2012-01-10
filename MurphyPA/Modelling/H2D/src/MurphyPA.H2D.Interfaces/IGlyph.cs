@@ -1,6 +1,8 @@
 using System;
 using System.Drawing;
 using System.Collections;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace MurphyPA.H2D.Interfaces
 {
@@ -41,5 +43,22 @@ namespace MurphyPA.H2D.Interfaces
 		void Accept (IGlyphVisitor visitor);
 
 		bool DoNotInstrument { get; set; }
+
 	}
+
+#if true
+    public class IGlyphConverter : ExpandableObjectConverter
+    {
+
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destType)
+        {
+            if (destType == typeof(string) && value is IGlyph)
+            {
+                IGlyph glyph = (IGlyph)value;
+                return glyph.Name;
+            }
+            return base.ConvertTo(context, culture, value, destType);
+        }
+    }
+#endif
 }

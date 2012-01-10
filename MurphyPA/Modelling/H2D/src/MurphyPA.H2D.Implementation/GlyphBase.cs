@@ -98,8 +98,24 @@ namespace MurphyPA.H2D.Implementation
 		public event MurphyPA.H2D.Interfaces.OffsetChangedHandler OffsetChanged;
 
 
-		protected IGlyph _Owner;
-		public IGlyph Owner 
+        [DisplayName("Owner")]
+        public string OwnerName
+        {
+            get
+            {
+                if (_Owner != null)
+                {
+                    return _Owner.Name;
+                }
+
+                return "";
+
+            }
+        }
+
+        protected IGlyph _Owner;
+        [Browsable(false)]
+        public IGlyph Owner 
 		{ 
 			get 
 			{
@@ -126,8 +142,24 @@ namespace MurphyPA.H2D.Implementation
 			}
 		}
 
+
+        [DisplayName("Parent")]
+        public string ParentName
+        {
+            get
+            {
+                if (_Parent != null)
+                {
+                    return _Parent.Name;
+                }
+
+                return "";
+            }
+        }
+
 		protected IGlyph _Parent;
 
+        [Browsable(false)]
 		public IGlyph Parent 
 		{ 
 			get 
@@ -163,8 +195,10 @@ namespace MurphyPA.H2D.Implementation
 			}
 		}
 
-		bool _Selected;
-		public bool Selected 
+
+        bool _Selected;
+        [ReadOnly(true)]
+        public bool Selected 
 		{ 
 			get { return _Selected; }
 			set { _Selected = value; }

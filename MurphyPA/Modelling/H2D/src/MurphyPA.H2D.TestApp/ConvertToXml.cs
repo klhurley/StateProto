@@ -5,6 +5,7 @@ using MurphyPA.H2D.Interfaces;
 using System.IO;
 using System.Xml;
 using System.Reflection;
+using qf4net;
 
 namespace MurphyPA.H2D.TestApp
 {

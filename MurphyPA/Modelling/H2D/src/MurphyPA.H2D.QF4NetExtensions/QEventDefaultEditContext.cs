@@ -1,6 +1,7 @@
 using System;
+using qf4net;
 
-namespace qf4net
+namespace MurphyPA.H2D.QF4NetExtensions
 {
 	/// <summary>
 	/// Summary description for QEventDefaultEditContext.

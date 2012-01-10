@@ -23,7 +23,7 @@ namespace MurphyPA.H2D.TestApp
 				return;
 			}
 
-            string lastFileDirectory = Properties.Settings.Default.LastFileOpenDirectory;
+            string lastFileDirectory = 	(string)Properties.Settings.Default["LastFileOpenDirectory"];
 
             if (lastFileDirectory.Length == 0)
             {
@@ -42,9 +42,8 @@ namespace MurphyPA.H2D.TestApp
 				string fileName = _SaveFileDialog.FileName;
 				SaveFile (fileName);
 
-                Properties.Settings.Default.LastFileOpenDirectory = Path.GetDirectoryName(fileName);
+                Properties.Settings.Default["LastFileOpenDirectory"] = Path.GetDirectoryName(fileName);
                 Properties.Settings.Default.Save();
-                Properties.Settings.Default.Upgrade();
             }
 		}
 

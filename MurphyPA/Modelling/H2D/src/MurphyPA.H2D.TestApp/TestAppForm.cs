@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Configuration;
+using qf4net;
 
 namespace MurphyPA.H2D.TestApp
 {
@@ -29,8 +31,9 @@ namespace MurphyPA.H2D.TestApp
 		private System.Windows.Forms.MenuItem publishUpdateMenuItem;
         private System.Windows.Forms.MenuItem updateApplicationMenuItem;
         private IContainer components;
+        private Properties.Settings _settings;
 
-		public TestAppForm()
+        public TestAppForm(ApplicationSettingsBase defaultSettings)
 		{
 			//
 			// Required for Windows Form Designer support
@@ -41,8 +44,7 @@ namespace MurphyPA.H2D.TestApp
 
 			InitToolMenu ();
 
-            Properties.Settings.Default.Upgrade();
-
+            _settings = new Properties.Settings(defaultSettings);
 		}
 
 		/// <summary>
@@ -412,7 +414,7 @@ namespace MurphyPA.H2D.TestApp
 			}
 		}
 
-		private void hsm_DispatchException(Exception ex, qf4net.IQHsm hsm, System.Reflection.MethodInfo stateMethod, qf4net.IQEvent ev)
+		private void hsm_DispatchException(Exception ex, qf4net.IQHsm hsm, QState stateMethod, qf4net.IQEvent ev)
 		{
 			_WriterWriteLine (Color.Red, "[{0}] Exception: on event {1}\n{2}", hsm, ev, ex.ToString ());
 		}
@@ -427,7 +429,7 @@ namespace MurphyPA.H2D.TestApp
 			//_WriterWriteLine (Color.Gray, "Ev: {0} {1} {2} {3}", pollContext, ev.GetHashCode (), ev.QSignal, ev.QData);
 		}
 
-		private void hsm_UnhandledTransition(qf4net.IQHsm hsm, System.Reflection.MethodInfo stateMethod, qf4net.IQEvent ev)
+		private void hsm_UnhandledTransition(qf4net.IQHsm hsm, QState state, qf4net.IQEvent ev)
 		{
 			_WriterWriteLine (Color.Crimson, "[{0}] Unhandled Event: {1}", hsm, ev);
 		}
