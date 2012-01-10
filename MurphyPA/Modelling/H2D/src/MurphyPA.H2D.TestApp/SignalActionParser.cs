@@ -11,7 +11,7 @@ namespace MurphyPA.H2D.TestApp
 	    static bool _UseSignalClass = false;
 	    static SignalActionParser()
 	    {
-	        string useSignalClass = System.Configuration.ConfigurationSettings.AppSettings["UseSignalClass"];
+            string useSignalClass = Properties.Settings.Default.UseSignalClass;
 	        if(useSignalClass != null)
 	        {
 	            useSignalClass = useSignalClass.ToLower ();

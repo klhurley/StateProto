@@ -40,6 +40,9 @@ namespace MurphyPA.H2D.TestApp
 			AddChild ("NoName!", "NoName!", stateDiagramView);
 
 			InitToolMenu ();
+
+            Properties.Settings.Default.Upgrade();
+
 		}
 
 		/// <summary>

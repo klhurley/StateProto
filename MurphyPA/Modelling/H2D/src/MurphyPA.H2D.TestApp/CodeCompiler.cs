@@ -23,7 +23,7 @@ namespace MurphyPA.H2D.TestApp
 		protected virtual CompilerResults Compile (string code, Type[] types) 
 		{
 			Microsoft.CSharp.CSharpCodeProvider provider = new Microsoft.CSharp.CSharpCodeProvider ();
-			ICodeCompiler compiler = provider.CreateCompiler ();
+			//ICodeCompiler compiler = provider.CreateCompiler ();
 			ArrayList assemblies = new ArrayList ();
 			assemblies.Add ("System.dll");
 			foreach (Type type in types)
@@ -33,7 +33,7 @@ namespace MurphyPA.H2D.TestApp
 			string[] assemblyNames = (string[]) assemblies.ToArray (typeof (string));
 			CompilerParameters options = new CompilerParameters (assemblyNames);
 			options.GenerateInMemory = true;
-			CompilerResults results = compiler.CompileAssemblyFromSource (options, code);
+			CompilerResults results = provider.CompileAssemblyFromSource (options, code);
 			return results;
 		}
 

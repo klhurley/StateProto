@@ -21,7 +21,17 @@ namespace MurphyPA.H2D.TestApp
 			ConvertToXml convert = new ConvertToXml (Context.Model);
 
 			_SaveFileDialog.FileName = GetXmlFileNameFor (Context.Model);
-			DialogResult dialogResult = _SaveFileDialog.ShowDialog ();
+
+            string lastXMLFileDirectory = Properties.Settings.Default.LastXMLFileDirectory;
+
+            if (lastXMLFileDirectory.Length == 0)
+            {
+                lastXMLFileDirectory = Environment.CurrentDirectory;
+            }
+
+            _SaveFileDialog.InitialDirectory = lastXMLFileDirectory;
+
+            DialogResult dialogResult = _SaveFileDialog.ShowDialog();
 			if (dialogResult == DialogResult.OK)
 			{
 				string fileName = _SaveFileDialog.FileName;
@@ -45,7 +55,11 @@ namespace MurphyPA.H2D.TestApp
 					}
 					File.Move (genFileName, fileName);
 					SaveXmlFileMapping (Context.Model, fileName);
-				} 
+
+                    Properties.Settings.Default.LastXMLFileDirectory = Path.GetDirectoryName(fileName);
+                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Upgrade();
+                } 
 				else 
 				{
 					MessageBox.Show ("XmlFile was not saved", "Cannot save generated xml file.");

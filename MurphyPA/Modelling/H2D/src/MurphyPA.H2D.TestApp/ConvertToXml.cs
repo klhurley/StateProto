@@ -13,9 +13,12 @@ namespace MurphyPA.H2D.TestApp
 	/// </summary>
 	public class ConvertToXml : ConvertToCodeBase
 	{
+        private DiagramModel _Model;
+
 		public ConvertToXml(DiagramModel model)
 			: base (model.GetGlyphsList ())
 		{
+            _Model = model;
 		}
 
 		public class PropertyVisitor : IGlyphVisitor
@@ -222,6 +225,24 @@ namespace MurphyPA.H2D.TestApp
 			}
 		}
 
+        public void WriteStateHeader(XmlTextWriter writer, StateMachineHeader header)
+        {
+            writer.WriteStartElement("StateMachineInfo");
+            writer.WriteAttributeString ("Name", _Model.Header.Name);
+			writer.WriteAttributeString ("Id", _Model.Header.ModelGuid);
+            writer.WriteElementString("ImplementationVersion", header.ImplementationVersion);
+            writer.WriteElementString("ModelFileName", header.ModelFileName);
+            writer.WriteElementString("HasSubMachines", header.HasSubMachines.ToString().ToLower());
+            writer.WriteElementString("StateMachineVersion", header.StateMachineVersion.ToString());
+            writer.WriteElementString("BaseStateMachine", header.BaseStateMachine);
+            writer.WriteElementString("NameSpace", header.NameSpace);
+            writer.WriteElementString("UsingNameSpaces", header.UsingNameSpaces);
+            writer.WriteElementString("ReadOnly", header.ReadOnly.ToString().ToLower());
+            writer.WriteElementString("Comment", header.Comment);
+            writer.WriteElementString("Assembly", header.Assembly);
+            writer.WriteEndElement();
+        }
+
 		public string Convert ()
 		{
 			PrepareGlyphs ();
@@ -231,8 +252,11 @@ namespace MurphyPA.H2D.TestApp
 			writer.Formatting = Formatting.Indented;
 
 			writer.WriteStartDocument (true);
-			writer.WriteStartElement ("Glyphs");
-			try
+            writer.WriteStartElement("StateMachine");
+            WriteStateHeader(writer, _Model.Header);
+
+            writer.WriteStartElement("Glyphs");
+            try
 			{
 				foreach (IGlyph glyph in _Glyphs)
 				{

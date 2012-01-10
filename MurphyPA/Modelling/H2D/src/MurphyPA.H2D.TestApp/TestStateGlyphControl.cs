@@ -913,7 +913,7 @@ namespace MurphyPA.H2D.TestApp
                 } 
                 else 
                 {
-                    drawingPanel.Scale (1.1f);
+                    drawingPanel.Scale (new SizeF(1.1f, 1.1f));
                     drawingPanel.Location = new Point (0, 0);
                     SetScrollBars ();
                 }
@@ -929,7 +929,7 @@ namespace MurphyPA.H2D.TestApp
                 } 
                 else 
                 {
-                    drawingPanel.Scale (0.9f);
+                    drawingPanel.Scale (new SizeF(0.9f, 0.9f));
                     drawingPanel.Location = new Point (0, 0);
                     SetScrollBars ();
                 }

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Configuration;
 
 namespace MurphyPA.H2D.TestApp
 {
@@ -17,15 +19,25 @@ namespace MurphyPA.H2D.TestApp
 
 		public override void Execute()
 		{
-			_OpenFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            string lastFileDirectory = Properties.Settings.Default.LastFileOpenDirectory;
+
+            if (lastFileDirectory.Length == 0)
+            {
+                lastFileDirectory = Environment.CurrentDirectory;
+            }
+
+            _OpenFileDialog.InitialDirectory = lastFileDirectory;
 			DialogResult dialogResult = _OpenFileDialog.ShowDialog ();
 			if (dialogResult == DialogResult.OK)
 			{
 				Context.ClearModel ();
 				LoadFile (_OpenFileDialog.FileName);
 				Context.ShowHeader ();
-				Context.Model.Header.ReadOnly = Context.Model.HasGlyphs ();
-			}
+				Context.Model.Header.ReadOnly = Context.Model.HasGlyphs();
+                Properties.Settings.Default.LastFileOpenDirectory = Path.GetDirectoryName(_OpenFileDialog.FileName);
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
 		}
 
 		private void LoadFile (string fileName)

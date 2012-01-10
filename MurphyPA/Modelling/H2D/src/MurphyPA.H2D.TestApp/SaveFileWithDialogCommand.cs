@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace MurphyPA.H2D.TestApp
 {
@@ -22,7 +23,14 @@ namespace MurphyPA.H2D.TestApp
 				return;
 			}
 
-			_SaveFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            string lastFileDirectory = Properties.Settings.Default.LastFileOpenDirectory;
+
+            if (lastFileDirectory.Length == 0)
+            {
+                lastFileDirectory = Environment.CurrentDirectory;
+            }
+
+            _SaveFileDialog.InitialDirectory = lastFileDirectory;
 			if (Context.LastFileName == null)
 			{
 				Context.LastFileName = Context.Model.Header.Name;
@@ -33,7 +41,11 @@ namespace MurphyPA.H2D.TestApp
 			{
 				string fileName = _SaveFileDialog.FileName;
 				SaveFile (fileName);
-			}
+
+                Properties.Settings.Default.LastFileOpenDirectory = Path.GetDirectoryName(fileName);
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
 		}
 
 		private void SaveFile (string fileName)
