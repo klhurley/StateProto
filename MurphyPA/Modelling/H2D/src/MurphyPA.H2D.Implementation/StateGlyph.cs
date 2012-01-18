@@ -4,6 +4,8 @@ using System.Drawing;
 using MurphyPA.H2D.Interfaces;
 using System.Drawing.Drawing2D;
 using System.Collections;
+using System.ComponentModel.Design;
+using System.Drawing.Design;
 
 namespace MurphyPA.H2D.Implementation
 {
@@ -308,7 +310,8 @@ namespace MurphyPA.H2D.Implementation
 
 		string _DoAction = "";
 		[Category ("State")]
-		public string DoAction { get { return _DoAction; } set { _DoAction = value; } }
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
+        public string DoAction { get { return _DoAction; } set { _DoAction = value; } }
 
 		System.Collections.Specialized.StringCollection _StateCommands = new System.Collections.Specialized.StringCollection ();
 		[Category ("State")]

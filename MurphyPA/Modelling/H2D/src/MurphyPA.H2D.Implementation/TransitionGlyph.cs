@@ -5,6 +5,9 @@ using System.Drawing.Drawing2D;
 using System.Collections;
 using System.Collections.Specialized;
 using MurphyPA.H2D.Interfaces;
+using System.ComponentModel.Design;
+using System.Drawing.Design;
+
 
 namespace MurphyPA.H2D.Implementation
 {
@@ -385,6 +388,7 @@ namespace MurphyPA.H2D.Implementation
 
 		string _Action = "";
 		[Category ("Transition")]
+        [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
 		public string Action { get { return _Action; } set { _Action = value; } }
 
 		bool _IsInnerTransition;
